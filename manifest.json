@@ -1,0 +1,11 @@
+[
+  {
+    "guid": "6f1c2a54-3b7d-4e0a-9c85-2d41a7e0b913",
+    "name": "LomboShelf",
+    "description": "Streaming-style Home shelf, genre browsing and theme for Jellyfin's web client. Needs the File Transformation plugin.",
+    "overview": "Streaming-style Home for the web client",
+    "owner": "Lombo-Forge",
+    "category": "General",
+    "versions": []
+  }
+]
