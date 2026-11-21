@@ -8,6 +8,14 @@
     "category": "General",
     "versions": [
       {
+        "version": "0.1.1.0",
+        "changelog": "Maintenance release: same plugin code as 0.1.0 with the CI and release workflow updates. Nothing to change for existing installs.",
+        "targetAbi": "12.4.0.0",
+        "sourceUrl": "https://github.com/Lombo-Forge/jellyfin-plugin-lomboshelf/releases/download/v0.1.1/lomboshelf_0.1.1.0.zip",
+        "checksum": "99e384163b7196fe6ba9d24496f744b6",
+        "timestamp": "2026-11-21T18:03:03Z"
+      },
+      {
         "version": "0.1.0.0",
         "changelog": "First release. Home shelf with request and genre rows, collection rows and the theme; needs the File Transformation plugin. Checked in a throwaway Jellyfin 12.4: loads, registers and injects; not yet checked on a TV or phone.",
         "targetAbi": "12.4.0.0",
