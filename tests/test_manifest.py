@@ -46,6 +46,18 @@ class ManifestTests(unittest.TestCase):
         self.assertTrue(mod.problems([plugin(), plugin()]))
         self.assertTrue(mod.problems([{"name": "x"}]))
 
+    def test_odd_input_is_reported_not_raised(self):
+        self.assertIn("must be an object", " ".join(mod.problems([plugin(versions=["x", 3, None])])))
+        self.assertIn("must be a list", " ".join(mod.problems([plugin(versions="x")])))
+        self.assertTrue(mod.problems([plugin(versions=[{}])]))
+        self.assertTrue(mod.problems([None, 5, "x"]))
+
+    def test_target_abi_and_zip_are_checked(self):
+        bad = {**GOOD_VERSION, "targetAbi": "12.x", "sourceUrl": "https://github.com/Lombo-Forge/x/releases/x.tar"}
+        text = " ".join(mod.problems([plugin(versions=[bad])]))
+        self.assertIn("targetAbi", text)
+        self.assertIn("end in .zip", text)
+
 
 if __name__ == "__main__":
     unittest.main()
