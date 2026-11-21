@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lombo Forge</title>
+<meta name="description" content="Small, open-source tools for people who run their own media server. Unofficial; not affiliated with the Jellyfin project.">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0d0a08">
+<link rel="icon" type="image/svg+xml" href="assets/lombo-forge.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <img class="banner" src="assets/lombo-forge-banner.png" width="1200" height="300"
+       alt="Lombo Forge: small, sharp tools for self-hosted media">
+</header>
+
+<main id="main">
+  <section class="intro" aria-labelledby="what">
+    <h1 id="what">Small tools for your own media server</h1>
+    <p>Lombo Forge is a set of small, open-source tools for people who self-host a media server. Each tool does one job,
+       lives in its own repository and works without the others.</p>
+    <p class="actions">
+      <a class="btn" href="https://github.com/Lombo-Forge">See the repositories</a>
+      <a class="btn ghost" href="https://ko-fi.com/datlombardo">Support on Ko-fi</a>
+    </p>
+  </section>
+
+  <section aria-labelledby="tools">
+    <h2 id="tools">The tools</h2>
+    <p class="note">Every tool says plainly in its README what has and has not been checked on real systems. The badges repeat that.</p>
+    <ul class="cards">
+      <li class="card">
+        <img src="assets/apps/tier.svg" width="64" height="64" alt="">
+        <div>
+          <h3><a href="https://github.com/Lombo-Forge/lombo-tier">LomboTier</a></h3>
+          <p>Moves movies and seasons between SSD and HDD based on what people watch (mergerfs).</p>
+          <p class="badge">1.0.0, dry-run by default</p>
+        </div>
+      </li>
+      <li class="card">
+        <img src="assets/apps/shrink.svg" width="64" height="64" alt="">
+        <div>
+          <h3><a href="https://github.com/Lombo-Forge/lombo-shrink">LomboShrink</a></h3>
+          <p>Uses the discrete graphics card in your main PC to re-encode a library to H.265, then swaps in the smaller files safely.</p>
+          <p class="badge warn">0.1.0, graphics-card encoders not yet run on real hardware</p>
+        </div>
+      </li>
+      <li class="card">
+        <img src="assets/apps/shelf.svg" width="64" height="64" alt="">
+        <div>
+          <h3><a href="https://github.com/Lombo-Forge/jellyfin-plugin-lomboshelf">LomboShelf</a></h3>
+          <p>A streaming-style home screen and theme for Jellyfin's web client, as a plugin.</p>
+          <p class="badge warn">Skeleton, never loaded in a real Jellyfin, no release yet</p>
+        </div>
+      </li>
+      <li class="card">
+        <img src="assets/apps/nudge.svg" width="64" height="64" alt="">
+        <div>
+          <h3><a href="https://github.com/Lombo-Forge/lombo-nudge">LomboNudge</a></h3>
+          <p>Finds requests that were approved but never arrived, and says why.</p>
+          <p class="badge warn">0.1.0, never run against real Seerr, Sonarr or Radarr</p>
+        </div>
+      </li>
+      <li class="card">
+        <img src="assets/apps/nap.svg" width="64" height="64" alt="">
+        <div>
+          <h3><a href="https://github.com/Lombo-Forge/lombo-nap">LomboNap</a></h3>
+          <p>Asks "Still watching?" and stops playback nobody is watching; reports what woke your sleeping disks.</p>
+          <p class="badge warn">0.1.0, never run with real clients or real disks</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="plugin">
+    <h2 id="plugin">Add the plugin repository to Jellyfin</h2>
+    <p>LomboShelf is the one tool installed through Jellyfin itself. It has no released version yet, so the list is empty for now.
+       When there is one:</p>
+    <ol>
+      <li>In the Jellyfin dashboard open <strong>Plugins</strong>, then <strong>Repositories</strong>, then <strong>Add</strong>.</li>
+      <li>Paste this address:
+        <!-- MANIFEST_URL: the one place to set the public manifest address. Placeholder until the domain is chosen (see docs/site.md). -->
+        <code class="url" id="manifest-url">https://manifest.example/manifest.json</code>
+      </li>
+      <li>Install LomboShelf from the catalogue. It also needs the File Transformation plugin; see its README.</li>
+    </ol>
+    <p class="note">The address above is a placeholder until the project's domain is set.</p>
+  </section>
+
+  <section aria-labelledby="agents">
+    <h2 id="agents">Friendly to AI agents</h2>
+    <p>Every repository has an <code>AGENTS.md</code> that maps the code and states the rules, a <code>CLAUDE.md</code> that points to it, and
+       skills in <code>.claude/skills/</code> for installing, troubleshooting and adapting the tool. Point your coding assistant at a repo and it can set the tool up with you.</p>
+  </section>
+
+  <section aria-labelledby="join">
+    <h2 id="join">Contributing and licence</h2>
+    <p>Issues and pull requests are welcome; the short rules are in the
+       <a href="https://github.com/Lombo-Forge/.github/blob/main/CONTRIBUTING.md">contributing guide</a>.
+       Everything is free software under the <a href="https://www.gnu.org/licenses/gpl-3.0.html">GPL-3.0</a>.
+       Headings use the Cinzel font under the <a href="https://openfontlicense.org">SIL Open Font License</a>.</p>
+    <p>If the tools save you time, you can <a href="https://ko-fi.com/datlombardo">support the work on Ko-fi</a>.</p>
+  </section>
+</main>
+
+<footer>
+  <p>Lombo Forge is unofficial and not affiliated with or endorsed by the Jellyfin project.
+     "Jellyfin" only says what the tools work with. No tracking, no cookies, no external requests on this page.</p>
+</footer>
+</body>
+</html>

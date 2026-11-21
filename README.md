@@ -20,6 +20,7 @@ None of it is affiliated with or endorsed by the Jellyfin project; "for Jellyfin
 - [Install the plugin from the manifest](#install-the-plugin-from-the-manifest)
 - [Brand assets](#brand-assets)
 - [Make your own](#make-your-own)
+- [Website](#website)
 - [Contributing](#contributing)
 
 ## The tools
@@ -51,6 +52,11 @@ the code; the Cinzel font is under the SIL Open Font License ([NOTICE.md](NOTICE
 
 Click **Use this template** on [lombo-jellyfin-template](https://github.com/Lombo-Forge/lombo-jellyfin-template), run one
 script, replace one function.
+
+## Website
+
+`site/` is a one-page static site (no framework, no build, no external requests) published with GitHub Pages; it also
+serves `manifest.json`. How to change it and turn it on: [docs/site.md](docs/site.md).
 
 ## Contributing
 
