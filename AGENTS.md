@@ -17,6 +17,9 @@ without this one.
 | `brand/` | The Lombo-Forge logo and banner, the Cinzel font, and every tool's icon and banner under `brand/apps/`. |
 | `docs/branding.md` | The look (the Lombo L is in every icon) and how to render artwork. |
 | `scripts/leak-check.sh` | Fails when private or personal strings appear. CI runs it. |
+| `site/` | The one-page website (`index.html`, `style.css`, `assets/`). No scripts or external requests. `site/manifest.json` is generated. |
+| `scripts/build-site.sh` | Copies `manifest.json` into `site/`. `.github/workflows/pages.yml` runs it and deploys on pushes to `main`. |
+| `docs/site.md` | How to change the site, turn Pages on, set the domain and the manifest address (a placeholder until chosen). |
 | `tests/` | `python3 -m unittest discover -s tests` |
 
 ## Rules
