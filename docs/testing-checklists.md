@@ -90,7 +90,7 @@ Needs: a Jellyfin server, an API key, and a way to sign in from a second network
 1. `lombo-visa doctor`, then `lombo-visa geoip update`. Pass: the country database downloads and `doctor` accepts it.
 2. `lombo-visa run` once. Pass: it only records the current sessions and ends nothing.
 3. `lombo-visa plan`, then sign in on the second network with a test account. Pass: the plan names the session and the country, and says what it would do.
-4. Set `DRY_RUN=false` and run. Pass: that session is ended and the alert arrives. Write down what the client shows (a login screen, an error, nothing).
+4. Set `DRY_RUN=false` and run. Pass: the alert arrives. Then also set `BLOCK_SESSIONS=true` and sign in again from the second network. Pass: that device is signed out. Write down what the client shows (a login screen, an error, nothing).
 5. `lombo-visa travel add NAME 1 --country CC` for the test account and sign in again. Pass: the session is left alone until the window ends. `travel list` shows the window and `travel revoke` ends it.
 
 ## LomboVault
