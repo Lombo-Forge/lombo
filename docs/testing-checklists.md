@@ -12,6 +12,9 @@ tool's repository: what you ran, what you expected, what happened.
 - [LomboNap](#lombonap)
 - [LomboTier](#lombotier)
 - [LomboShelf](#lomboshelf)
+- [LomboFarewell](#lombofarewell)
+- [LomboVisa](#lombovisa)
+- [LomboVault](#lombovault)
 
 ## LomboShrink
 
@@ -69,3 +72,34 @@ Needs: Jellyfin 12.4 with the File Transformation plugin installed, on a test se
 3. Open the web client: the shelf rows, genre rows and theme appear on desktop, phone and a TV browser. View the Home page and
    check nothing else is broken (open a movie, search, the player).
 4. Uninstall the plugin: the web client returns to normal.
+
+## LomboFarewell
+
+Needs: a Jellyfin server and an API key. A Maintainerr is optional (the other source is a list of titles).
+
+1. `lombo-farewell doctor`: `[ok]` for Jellyfin, the key, the source and the collection.
+2. `lombo-farewell plan` with `DRY_RUN=true`. Pass: it lists the titles that are leaving, with days left, and says whether it would create the collection.
+3. Set `DRY_RUN=false` and run once. Pass: a collection appears in Jellyfin containing exactly those titles. Open it in the web client and in one app, and write down which clients show it.
+4. Run again. Pass: nothing is duplicated. Remove one title from the source and run again. Pass: it leaves the collection and nothing else does.
+5. With a Maintainerr source: `lombo-farewell keep "Title"`. Pass: Maintainerr shows the deletion pushed back by `KEEP_DAYS`. The Maintainerr field names are the most likely thing to differ on a newer version, so note the version.
+
+## LomboVisa
+
+Needs: a Jellyfin server, an API key, and a way to sign in from a second network (a phone on mobile data is enough).
+
+1. `lombo-visa doctor`, then `lombo-visa geoip update`. Pass: the country database downloads and `doctor` accepts it.
+2. `lombo-visa run` once. Pass: it only records the current sessions and ends nothing.
+3. `lombo-visa plan`, then sign in on the second network with a test account. Pass: the plan names the session and the country, and says what it would do.
+4. Set `DRY_RUN=false` and run. Pass: that session is ended and the alert arrives. Write down what the client shows (a login screen, an error, nothing).
+5. `lombo-visa travel add NAME 1 --country CC` for the test account and sign in again. Pass: the session is left alone until the window ends. `travel list` shows the window and `travel revoke` ends it.
+
+## LomboVault
+
+Needs: a copy of real config folders (not the live ones), `age` and a key pair. Back up the key somewhere else first: without it nothing opens.
+
+1. `lombo-vault doctor`. Pass: `age` found, your recipient accepted, the folders readable.
+2. `lombo-vault plan` against the copy. Pass: it lists the files you expect and writes nothing.
+3. Set `DRY_RUN=false` and run `lombo-vault backup`, then `lombo-vault drill`. Pass: `OK` with the file count and size matching the copy.
+4. Restore one app's database from the backup into a scratch folder and open it with the real app. Pass: it starts and shows your data. SQLite files copied while an app writes can be inconsistent, so do this for the apps you care about most.
+5. Run `backup` with `KEEP` set low and `DRY_RUN=false`. Pass: only the old backups are removed, and the newest one still passes `drill`.
+6. Point the success ping at a real healthchecks, Discord or Slack address. Pass: a message arrives after `OK` and none after a failed drill.
