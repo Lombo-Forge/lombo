@@ -38,9 +38,8 @@ Every tool is dry-run by default and says plainly in its README what has and has
 
 ## Install the plugin from the manifest
 
-LomboShelf is the one tool installed through Jellyfin itself. No version is published yet, so the manifest lists the
-plugin with no versions. Once there is a release: Jellyfin dashboard, **Plugins**, **Repositories**, **Add**, and paste the
-raw URL of `manifest.json` from this repo's `main` branch. LomboShelf also needs the File Transformation plugin; see its README.
+LomboShelf is the one tool installed through Jellyfin itself: Jellyfin dashboard, **Plugins**, **Repositories**, **Add**, and paste
+`https://lombo-forge.github.io/lombo/manifest.json`. Then install LomboShelf from the catalogue. It also needs the File Transformation plugin; see its README.
 
 ## Brand assets
 

@@ -22,10 +22,8 @@ external requests. GitHub Pages publishes it, and it also serves the plugin repo
 
 ## Set the manifest address
 
-The address shown in "Add the plugin repository to Jellyfin" is a **placeholder**
-(`https://manifest.example/manifest.json`), in one place: the `<code id="manifest-url">` element in `site/index.html`,
-marked with a `MANIFEST_URL` comment. **To do once the owner chooses the domain:** replace it with the real address,
-and update `PLACEHOLDER_HOST` in `tests/test_site.py` (the test checks the address appears exactly once).
+The address shown in "Add the plugin repository to Jellyfin" is `https://lombo-forge.github.io/lombo/manifest.json`, in one place: the `<code id="manifest-url">` element in `site/index.html`,
+marked with a `MANIFEST_URL` comment. If it ever moves (a custom domain), change it there and `PLACEHOLDER_HOST` in `tests/test_site.py` (the test checks the address appears exactly once).
 
 ## Turn Pages on
 
