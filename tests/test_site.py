@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SITE = ROOT / "site"
 
 ALLOWED_HOSTS = {"github.com", "ko-fi.com", "www.gnu.org", "openfontlicense.org"}
-PLACEHOLDER_HOST = "manifest.example"  # the manifest address constant, see docs/site.md
+PLACEHOLDER_HOST = "lombo-forge.github.io"  # the manifest address constant, see docs/site.md
 
 
 class Page(HTMLParser):
