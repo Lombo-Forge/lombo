@@ -41,6 +41,10 @@ Every tool is dry-run by default and says plainly in its README what has and has
 LomboShelf is the one tool installed through Jellyfin itself: Jellyfin dashboard, **Plugins**, **Repositories**, **Add**, and paste
 `https://lombo-forge.github.io/lombo/manifest.json`. Then install LomboShelf from the catalogue. It also needs the File Transformation plugin; see its README.
 
+## How the apps work together
+
+A few apps hand work to each other through small JSON files and one HTTP call: [docs/contracts.md](docs/contracts.md).
+
 ## Brand assets
 
 `brand/` has the Lombo Forge logo and banner and, under `brand/apps/`, every tool's icon and banner. The Lombo **L** is in
