@@ -32,16 +32,28 @@ def problems(data: object) -> list[str]:
             out.append(f"{name}: duplicate guid")
         seen.add(guid)
         versions = plugin.get("versions", [])
-        for v in versions if isinstance(versions, list) else []:
-            out += [f"{name} {v.get('version', '?')}: missing '{k}'" for k in VERSION_KEYS if k not in v]
+        if not isinstance(versions, list):
+            out.append(f"{name}: 'versions' must be a list")
+            versions = []
+        for i, v in enumerate(versions):
+            if not isinstance(v, dict):
+                out.append(f"{name}: versions[{i}] must be an object")
+                continue
+            label = f"{name} {v.get('version', '?')}"
+            out += [f"{label}: missing '{k}'" for k in VERSION_KEYS if k not in v]
             if not VERSION.match(str(v.get("version", ""))):
                 out.append(f"{name}: version must have four numbers, got {v.get('version')!r}")
+            if not VERSION.match(str(v.get("targetAbi", ""))):
+                out.append(f"{label}: targetAbi must have four numbers, got {v.get('targetAbi')!r}")
             if not MD5.match(str(v.get("checksum", ""))):
-                out.append(f"{name} {v.get('version', '?')}: checksum must be an MD5 hex string")
-            if not str(v.get("sourceUrl", "")).startswith("https://github.com/Lombo-Forge/"):
-                out.append(f"{name} {v.get('version', '?')}: sourceUrl must be a Lombo-Forge release")
+                out.append(f"{label}: checksum must be an MD5 hex string")
+            url = str(v.get("sourceUrl", ""))
+            if not url.startswith("https://github.com/Lombo-Forge/"):
+                out.append(f"{label}: sourceUrl must be a Lombo-Forge release")
+            if not url.endswith(".zip"):
+                out.append(f"{label}: sourceUrl must end in .zip")
             if not TIMESTAMP.match(str(v.get("timestamp", ""))):
-                out.append(f"{name} {v.get('version', '?')}: timestamp must be ISO 8601")
+                out.append(f"{label}: timestamp must be ISO 8601")
     return out
 
 
