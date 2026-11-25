@@ -8,6 +8,14 @@
     "category": "General",
     "versions": [
       {
+        "version": "0.2.0.0",
+        "changelog": "Adds optional storage badges, a Keep it longer button and a Travelling card, all off by default. The badge and note show on every visit to a title. Checked in a throwaway Jellyfin 12.4 with stand-in services; not yet checked on a TV or phone.",
+        "targetAbi": "12.4.0.0",
+        "sourceUrl": "https://github.com/Lombo-Forge/jellyfin-plugin-lomboshelf/releases/download/v0.2.0/lomboshelf_0.2.0.0.zip",
+        "checksum": "d851c029a77eb3f3672b3591b864ef98",
+        "timestamp": "2026-11-25T22:49:13Z"
+      },
+      {
         "version": "0.1.1.0",
         "changelog": "Maintenance release: same plugin code as 0.1.0 with the CI and release workflow updates. Nothing to change for existing installs.",
         "targetAbi": "12.4.0.0",
